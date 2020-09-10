@@ -1,10 +1,14 @@
 import * as React from 'react'
-import styles from './styles.module.css'
+import VitalSignsHeader from './components/header-component/header-component.component'
+import VitalSignsFooter from './components/footer-component/footer-component.component'
+import VitalSignsCard from './components/card-component/vital-sign-component.component'
 
-interface Props {
-  text: string
-}
-
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+export const ExampleComponent = () => {
+  return (
+    <div>
+      <VitalSignsHeader />
+      <VitalSignsCard />
+      <VitalSignsFooter />
+    </div>
+  )
 }
