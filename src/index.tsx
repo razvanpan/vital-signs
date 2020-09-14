@@ -3,7 +3,7 @@ import VitalSignsHeader from './components/header-component/header-component.com
 import VitalSignsFooter from './components/footer-component/footer-component.component'
 import VitalSignsCard from './components/card-component/vital-sign-component.component'
 
-export const ExampleComponent = () => {
+export const VitalSignsComponent = () => {
   return (
     <div>
       <VitalSignsHeader />
