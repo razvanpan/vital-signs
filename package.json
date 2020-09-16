@@ -36,9 +36,9 @@
     "@types/react-dom": "^16.9.7",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
-    "microbundle-crl": "^0.13.10",
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.2",
+    "css-loader": "^4.3.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-config-standard": "^14.1.0",
@@ -50,11 +50,13 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-standard": "^4.0.1",
     "gh-pages": "^2.2.0",
+    "microbundle-crl": "^0.13.10",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
+    "style-loader": "^1.2.1",
     "typescript": "^3.7.5"
   },
   "files": [
@@ -65,6 +67,9 @@
     "react-intl": "^5.8.1",
     "terra-action-footer": "^2.52.0",
     "terra-action-header": "^2.56.0",
-    "terra-card": "^3.34.0"
+    "terra-button": "^3.47.0",
+    "terra-card": "^3.34.0",
+    "terra-clinical-item-view": "^4.1.0",
+    "terra-collapsible-menu-view": "^6.40.0"
   }
 }
