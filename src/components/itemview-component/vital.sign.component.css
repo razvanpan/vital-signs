@@ -1,6 +1,6 @@
 .vitalSignItemView {
   position: relative;
-  flex: 0 0 20em;
+  flex: 0 0 250px;
   border-style: groove;
   border-width: thin;
 }
