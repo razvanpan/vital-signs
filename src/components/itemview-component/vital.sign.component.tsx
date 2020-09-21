@@ -4,42 +4,42 @@ import styles from './vital.sign.component.css'
 import VitalSignItem from '../../model/VitalSignItem'
 
 const vitalSigns: VitalSignItem[] = []
-const temperature: VitalSignItem = {
-  vitalSign: 'Temperature',
-  value: '37.2',
-  unitMeasure: 'C',
-  time: '10:48'
-}
-const heartRate: VitalSignItem = {
-  vitalSign: 'Heart Rate',
-  value: '75',
-  unitMeasure: '/min',
-  time: '10:48'
-}
-const bloodPressure: VitalSignItem = {
-  vitalSign: 'Blood Pressure',
-  value: '122/75',
-  unitMeasure: 'mmHg',
-  time: '10:48'
-}
-const oSaturation: VitalSignItem = {
-  vitalSign: 'O2 Saturation',
-  value: '96',
-  unitMeasure: '%',
-  time: '10:48'
-}
-const respirationRate: VitalSignItem = {
-  vitalSign: 'Respiration Rate',
-  value: '17',
-  unitMeasure: '/min',
-  time: '10:48'
-}
-const bloodSugar: VitalSignItem = {
-  vitalSign: 'Blood Sugar',
-  value: '--',
-  unitMeasure: 'mg/dl',
-  time: 'Not assessed'
-}
+const temperature: VitalSignItem = new VitalSignItem(
+  'Temperature',
+  '37.2',
+  'C',
+  '10:48'
+)
+const heartRate: VitalSignItem = new VitalSignItem(
+  'Heart Rate',
+  '75',
+  '/min',
+  '10:48'
+)
+const bloodPressure: VitalSignItem = new VitalSignItem(
+  'Blood Pressure',
+  '122/75',
+  'mmHg',
+  '10:48'
+)
+const oSaturation: VitalSignItem = new VitalSignItem(
+  'O2 Saturation',
+  '96',
+  '%',
+  '10:48'
+)
+const respirationRate: VitalSignItem = new VitalSignItem(
+  'Respiration Rate',
+  '17',
+  '/min',
+  '10:48'
+)
+const bloodSugar: VitalSignItem = new VitalSignItem(
+  'Blood Sugar',
+  '--',
+  'mg/dl',
+  'Not assessed'
+)
 
 vitalSigns.push(
   temperature,
