@@ -1,14 +1,9 @@
-class VitalSignItem {
-  vitalSign: string
-  value: string
-  unitMeasure: string
-  time: string
-
+export default class VitalSignItem {
   constructor(
-    vitalSign: string,
-    value: string,
-    unitMeasure: string,
-    time: string
+    public vitalSign: string,
+    public value: string,
+    public unitMeasure: string,
+    public time: string
   ) {
     this.vitalSign = vitalSign
     this.value = value
@@ -16,5 +11,3 @@ class VitalSignItem {
     this.time = time
   }
 }
-
-export default VitalSignItem
