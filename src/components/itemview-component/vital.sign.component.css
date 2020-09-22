@@ -1,0 +1,30 @@
+.vitalSignItemView {
+  position: relative;
+  flex: 0 0 250px;
+  border-style: groove;
+  border-width: thin;
+}
+
+.padding {
+  background-color: #eaeffa;
+  padding-top: 19px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vitalSignText {
+  font-weight: 600;
+}
+
+.valueText {
+  font-weight: bold;
+  color: black;
+}
+
+.unitMeasureText {
+  color: grey;
+}
+
+.timeText {
+  color: grey;
+}

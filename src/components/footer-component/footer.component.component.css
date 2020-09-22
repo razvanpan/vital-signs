@@ -1,0 +1,9 @@
+.actionFooter {
+  position: fixed;
+  bottom: 0;
+  width: 100% !important;
+}
+
+.actionFooter > div {
+  width: auto;
+}
