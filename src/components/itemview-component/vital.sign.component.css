@@ -1,15 +1,21 @@
 .vitalSignItemView {
-  position: relative;
   flex: 0 0 250px;
   border-style: groove;
   border-width: thin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .padding {
+  position: fixed;
+  top: 59px;
+  bottom: 70px;
+  width: 100%;
   background-color: #eaeffa;
-  padding-top: 19px;
   display: flex;
   flex-wrap: wrap;
+  overflow: auto;
 }
 
 .vitalSignText {
