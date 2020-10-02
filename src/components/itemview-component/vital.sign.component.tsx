@@ -19,7 +19,7 @@ class VitalSignItemView extends React.Component<null, IState> {
 
   readURL(): Promise<VitalSignItem[]> {
     return new Promise((resolve) => {
-      fetch(`http://localhost:8080/vital-signs/vitalSigns`)
+      fetch(`http://localhost:8080/vital-signs/all`)
         .then((res) => res.json())
         .then(async (res) => {
           await res.forEach((element) => {
