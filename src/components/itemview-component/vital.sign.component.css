@@ -18,6 +18,17 @@
   overflow: auto;
 }
 
+.inputValueForm {
+  height: 30px;
+  width: 100px;
+  margin-bottom: 10px;
+  font-size: small;
+}
+
+.vitalSignID {
+  display: none;
+}
+
 .vitalSignText {
   font-weight: 600;
 }

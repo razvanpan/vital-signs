@@ -1,87 +1,52 @@
 import React from 'react'
-import ItemView from 'terra-clinical-item-view'
 import styles from './vital.sign.component.css'
+import VitalSignComponentModel from '../../model/VitalSignComponentModel'
+import readURL from '../../API/api.component'
+import ItemElement from '../itemElement/itemElement'
 import VitalSignItem from '../../model/VitalSignItem'
+import InputData from '../../model/InputData'
 
-const vitalSigns: VitalSignItem[] = []
+let vitalSignComponentModel: VitalSignComponentModel
 
 interface IState {
-  vitalSignDataList?: any
+  loading: boolean
+  data: any
 }
 
-class VitalSignItemView extends React.Component<null, IState> {
+interface InputDataProps {
+  inputData: InputData
+}
+
+class VitalSignItemView extends React.Component<InputDataProps, IState> {
   constructor(props) {
     super(props)
-    this.state = {
-      vitalSignDataList: []
-    }
+    vitalSignComponentModel = new VitalSignComponentModel(0, '', [])
+
+    this.state = { loading: true, data: [] }
   }
 
-  readURL(): Promise<VitalSignItem[]> {
-    return new Promise((resolve) => {
-      fetch(`http://localhost:8080/vital-signs/all`)
-        .then((res) => res.json())
-        .then(async (res) => {
-          await res.forEach((element) => {
-            vitalSigns.push(element)
-          })
-          resolve(vitalSigns)
-        })
+  async populateItemView() {
+    const vitalSignsList = await readURL()
+    vitalSignsList.forEach((element: VitalSignItem) => {
+      vitalSignComponentModel.vitalSignDataList.push(
+        <ItemElement element={element} inputData={this.props.inputData} />
+      )
     })
-  }
-
-  data: any[] = []
-  async populateItemView(): Promise<VitalSignItem[]> {
-    const vitalSignsList = await this.readURL()
-    return new Promise((resolve) => {
-      vitalSignsList.forEach((element) => {
-        const vitalSignText = (
-          <div className={styles.vitalSignText}>
-            <ItemView.Display text={element.vitalSign} />
-          </div>
-        )
-        const valueText = (
-          <div className={styles.valueText}>
-            <ItemView.Display text={element.value} />
-          </div>
-        )
-        const unitMeasureText = (
-          <div className={styles.unitMeasureText}>
-            <ItemView.Display text={element.unitMeasure} />
-          </div>
-        )
-        const timeText = (
-          <div className={styles.timeText}>
-            <ItemView.Display text={element.time} />
-          </div>
-        )
-
-        const displays = [vitalSignText, valueText, unitMeasureText, timeText]
-
-        const itemView = (
-          <div className={styles.vitalSignItemView}>
-            <ItemView
-              displays={displays}
-              layout='twoColumns'
-              textEmphasis='start'
-            />
-          </div>
-        )
-
-        this.data.push(itemView)
-      })
-      resolve(this.data)
-    })
-  }
-
-  async componentDidMount() {
     this.setState({
-      vitalSignDataList: await this.populateItemView()
+      loading: false,
+      data: vitalSignComponentModel.vitalSignDataList
     })
+  }
+
+  componentDidMount() {
+    this.populateItemView()
   }
 
   render() {
-    return <div className={styles.padding}>{this.state.vitalSignDataList}</div>
+    const { loading, data } = this.state
+    return (
+      <div className={styles.padding}>{loading ? 'Still loading' : data}</div>
+    )
   }
 }
 
