@@ -2,7 +2,7 @@ import * as React from 'react'
 import InputData from '../../model/InputData'
 import VitalSignsFooter from '../footer-component/footer.component.component'
 import VitalSignsHeader from '../header-component/header.component.component'
-import VitalSignItemView from '../itemview-component/vital.sign.component'
+import VitalSignItemView from '../itemview-component/vital.sign.body.component'
 import style from '../vitalSignComponent/vital.sign.component.css'
 
 let inputData: InputData

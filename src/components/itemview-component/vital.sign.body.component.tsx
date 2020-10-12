@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './vital.sign.component.css'
+import styles from './vital.sign.body.component.css'
 import VitalSignComponentModel from '../../model/VitalSignComponentModel'
 import readURL from '../../API/api.component'
 import ItemElement from '../itemElement/itemElement'

@@ -1,6 +1,6 @@
 import React from 'react'
 import VitalSignItem from '../../model/VitalSignItem'
-import styles from '../itemview-component/vital.sign.component.css'
+import styles from '../itemview-component/vital.sign.body.component.css'
 import ItemView from 'terra-clinical-item-view'
 import Button from 'terra-button/lib/Button'
 import Input from 'terra-form-input'
