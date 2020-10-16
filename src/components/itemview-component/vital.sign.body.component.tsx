@@ -1,52 +1,35 @@
 import React from 'react'
 import styles from './vital.sign.body.component.css'
-import VitalSignComponentModel from '../../model/VitalSignComponentModel'
-import readURL from '../../API/api.component'
 import ItemElement from '../itemElement/itemElement'
+import ItemView from 'terra-clinical-item-view'
 import VitalSignItem from '../../model/VitalSignItem'
-import InputData from '../../model/InputData'
-
-let vitalSignComponentModel: VitalSignComponentModel
 
 interface IState {
   loading: boolean
-  data: any
+  data: ItemView[]
 }
 
 interface InputDataProps {
-  inputData: InputData
+  vitalSignsList: VitalSignItem[]
+  bool: boolean
 }
 
 class VitalSignItemView extends React.Component<InputDataProps, IState> {
   constructor(props) {
     super(props)
-    vitalSignComponentModel = new VitalSignComponentModel(0, '', [])
+    this.populateItemView = this.populateItemView.bind(this)
 
     this.state = { loading: true, data: [] }
   }
 
-  async populateItemView() {
-    const vitalSignsList = await readURL()
-    vitalSignsList.forEach((element: VitalSignItem) => {
-      vitalSignComponentModel.vitalSignDataList.push(
-        <ItemElement element={element} inputData={this.props.inputData} />
-      )
-    })
-    this.setState({
-      loading: false,
-      data: vitalSignComponentModel.vitalSignDataList
-    })
-  }
-
-  componentDidMount() {
-    this.populateItemView()
+  populateItemView() {
+    return this.props.vitalSignsList.map((el) => (
+      <ItemElement key={el.id} element={el} bool={this.props.bool} />
+    ))
   }
 
   render() {
-    const { loading, data } = this.state
-    return (
-      <div className={styles.padding}>{loading ? 'Still loading' : data}</div>
-    )
+    return <div className={styles.padding}>{this.populateItemView()}</div>
   }
 }
 

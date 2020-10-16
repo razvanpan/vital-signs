@@ -4,24 +4,20 @@ import styles from '../itemview-component/vital.sign.body.component.css'
 import ItemView from 'terra-clinical-item-view'
 import Button from 'terra-button/lib/Button'
 import Input from 'terra-form-input'
-import InputData from '../../model/InputData'
 
 interface ItemElementProp {
   element: VitalSignItem
-  inputData: InputData
+  bool: boolean
 }
 
 interface ItemViewState {
   itemView: ItemView
 }
 
-let isPressed = false
-
 class ItemElement extends React.Component<ItemElementProp, ItemViewState> {
   constructor(props) {
     super(props)
     this.handleChange = this.handleChange.bind(this)
-
     this.state = {
       itemView: (
         <ItemView
@@ -50,7 +46,7 @@ class ItemElement extends React.Component<ItemElementProp, ItemViewState> {
       </div>
     )
 
-    if (isPressed) {
+    if (this.props.element.isInEditMode) {
       valueText = (
         <div className={styles.inputValueForm}>
           <Input
@@ -114,20 +110,23 @@ class ItemElement extends React.Component<ItemElementProp, ItemViewState> {
   }
 
   handleChange(event) {
-    this.props.inputData.input = event.target.value
+    this.props.element.value = event.target.value
   }
 
   render() {
+    return this.renderMethod(this.state.itemView, this.props.element)
+  }
+
+  private renderMethod(itemView: ItemView, element: VitalSignItem) {
     return (
       <div className={styles.vitalSignItemView}>
-        {this.state.itemView}
+        {itemView}
         <Button
           text='Edit'
           variant='de-emphasis'
           onClick={() => {
-            isPressed = true
-            this.props.inputData.id = this.props.element.id
-            this.itemViewDisplay(this.props.element)
+            element.isInEditMode = !element.isInEditMode
+            this.itemViewDisplay(element)
           }}
         />
       </div>

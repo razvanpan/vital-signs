@@ -1,15 +1,18 @@
+import { apiBackEndUrl } from '../constants/contants'
 import VitalSignItem from '../model/VitalSignItem'
+import axios, { AxiosResponse } from 'axios'
 
-export default function readURL(): Promise<VitalSignItem[]> {
-  const vitalSigns: VitalSignItem[] = []
-  return new Promise((resolve) => {
-    fetch(`http://localhost:8080/vital-signs/all`)
-      .then((res) => res.json())
-      .then((res) => {
-        res.forEach((element) => {
-          vitalSigns.push(element)
-        })
-        resolve(vitalSigns)
-      })
-  })
+let vitalSigns: VitalSignItem[]
+
+export default async function readURL() {
+  vitalSigns = []
+
+  try {
+    const result: AxiosResponse<any> = await axios.get(`${apiBackEndUrl}all`)
+    vitalSigns = result.data.map((el) => el)
+  } catch (e) {
+    console.log(e)
+  }
+
+  return vitalSigns
 }
