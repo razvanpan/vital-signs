@@ -1,5 +1,4 @@
 .actionFooter {
-  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -9,5 +8,5 @@
 .actionFooter > div {
   width: auto;
   border-radius: 0px 0px 25px 25px;
-  border-bottom: solid;
+  background-color: #eaeffa;
 }
