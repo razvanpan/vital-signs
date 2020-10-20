@@ -8,5 +8,5 @@
 .actionFooter > div {
   width: auto;
   border-radius: 0px 0px 25px 25px;
-  border-bottom: solid;
+  background-color: #eaeffa;
 }
